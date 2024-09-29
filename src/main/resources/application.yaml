@@ -1,0 +1,13 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: jsec
+
+logging:
+  level:
+    org.springframework.boot.autoconfigure.logging: ERROR
+
+management.endpoint.info.enabled: true
+management.endpoints.web.exposure.include: health,metrics,prometheus,loggers
