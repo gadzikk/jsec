@@ -6,6 +6,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -19,7 +20,7 @@ import java.util.Date;
 public class JwtService {
 
     private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-
+/*
     @PostConstruct
     public void init() {
         var token = generateToken("waszkag@o2.pl");
@@ -32,6 +33,8 @@ public class JwtService {
         log.info("=========== " + isExpired + " ===========");
     }
 
+ */
+
     public String generateToken(String email) {
         return Jwts.builder()
                 .subject(email)
@@ -43,6 +46,11 @@ public class JwtService {
 
     public String extractEmail(String token) {
         return getTokenBody(token).getSubject();
+    }
+
+    public boolean validateToken(String token, UserDetails user) {
+        var username = extractEmail(token);
+        return username.equalsIgnoreCase(user.getUsername()) && !isExpired(token);
     }
 
     @SneakyThrows
