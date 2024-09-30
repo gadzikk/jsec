@@ -40,17 +40,16 @@ public class AuthFilter extends OncePerRequestFilter {
         }
         var token = header.replaceAll("Bearer ", "");
         var email = jwtService.extractEmail(token);
-        log.info("EMAIL:EMAIL:EMAIL {}", email);
+        log.info("Trying to authenticate {}", email);
 
         var user = userService.loadUserByUsername(email);
-
         var isTokenValid = jwtService.validateToken(token, user);
 
         if (isTokenValid) {
             UsernamePasswordAuthenticationToken upAuthToken = new UsernamePasswordAuthenticationToken(user, null, List.of());
             upAuthToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
             SecurityContextHolder.getContext().setAuthentication(upAuthToken);
-            log.info("SC:SC:SC {}", SecurityContextHolder.getContext().getAuthentication());
+            log.info("Authenticated user: {}", SecurityContextHolder.getContext().getAuthentication());
         }
         filterChain.doFilter(request, response);
     }
