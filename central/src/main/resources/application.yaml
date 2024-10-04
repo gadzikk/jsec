@@ -1,5 +1,11 @@
 server:
   port: 8081
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: classpath:config/server-keystore.p12
+    key-store-password: server
+    key-alias: server
 
 spring:
   application:
