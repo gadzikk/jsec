@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JsecApplication {
+public class JsecCentralApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JsecApplication.class, args);
+		SpringApplication.run(JsecCentralApplication.class, args);
 	}
 
 }

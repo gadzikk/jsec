@@ -1,0 +1,13 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: suplementary
+
+logging:
+  level:
+    org.springframework.boot.autoconfigure.logging: ERROR
+
+management.endpoint.info.enabled: true
+management.endpoints.web.exposure.include: health,metrics,prometheus,loggers
