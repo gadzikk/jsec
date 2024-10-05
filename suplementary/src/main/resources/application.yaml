@@ -1,5 +1,27 @@
 server:
   port: 8082
+  ssl:
+    enabled: true
+    trust-store-type: PKCS12
+    trust-store: classpath:client-keystore.p12
+    trust-store-password: client
+    key-store-type: PKCS12
+    key-store: classpath:client-keystore.p12
+    key-password: client
+    key-store-password: client
+    key-alias: client
+
+
+
+secure-connection:
+  trust-store-type: PKCS12
+  trust-store: classpath:client-keystore.p12
+  trust-store-password: client
+  key-store-type: PKCS12
+  key-store: classpath:client-keystore.p12
+  key-password: client
+  key-store-password: client
+  key-alias: client
 
 spring:
   application:
