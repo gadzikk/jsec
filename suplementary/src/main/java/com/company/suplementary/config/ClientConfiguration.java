@@ -3,12 +3,9 @@ package com.company.suplementary.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
-import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,7 +16,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.http.HttpClient;
 import java.security.KeyStore;
 import java.security.SecureRandom;
 
@@ -28,7 +24,7 @@ import java.security.SecureRandom;
 public class ClientConfiguration {
 
     private final ObjectMapper objectMapper;
-    private final ConnectionProperties properties;
+    private final TLSProperties properties;
 
     @Bean
     public RestTemplate restTemplate() {

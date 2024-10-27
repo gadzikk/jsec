@@ -7,21 +7,21 @@ import org.springframework.core.io.Resource;
 
 @Configuration
 @Getter
-public class ConnectionProperties {
-    @Value("${secure-connection.trust-store-type}")
+public class TLSProperties {
+    @Value("${server.ssl.trust-store-type}")
     private String trustStoreType;
-    @Value("${secure-connection.trust-store}")
+    @Value("${server.ssl.trust-store}")
     private Resource trustStore;
-    @Value("${secure-connection.trust-store-password}")
+    @Value("${server.ssl.trust-store-password}")
     private String trustStorePassword;
-    @Value("${secure-connection.key-store-type}")
+    @Value("${server.ssl.key-store-type}")
     private String keyStoreType;
-    @Value("${secure-connection.key-store}")
+    @Value("${server.ssl.key-store}")
     private Resource keyStore;
-    @Value("${secure-connection.key-password}")
+    @Value("${server.ssl.key-password}")
     private String keyPassword;
-    @Value("${secure-connection.key-store-password}")
+    @Value("${server.ssl.key-store-password}")
     private String keyStorePassword;
-    @Value("${secure-connection.key-alias}")
+    @Value("${server.ssl.key-alias}")
     private String keyAlias;
 }
