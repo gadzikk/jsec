@@ -1,0 +1,21 @@
+server:
+  port: 8083
+  ssl:
+    enabled: true
+    key-store: classpath:server-nonprod.jks
+    key-store-password: changeme
+    key-password: changeme
+    trust-store: classpath:server-nonprod.jks
+    trust-store-password: changeme
+    client-auth: need
+
+spring:
+  application:
+    name: mtlsserver
+
+logging:
+  level:
+    org.springframework.boot.autoconfigure.logging: ERROR
+
+management.endpoint.info.enabled: true
+management.endpoints.web.exposure.include: health,metrics,prometheus,loggers
