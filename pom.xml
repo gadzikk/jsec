@@ -5,6 +5,7 @@
 	<modules>
 		<module>central</module>
 		<module>suplementary</module>
+		<module>zutils</module>
 	</modules>
 
 	<parent>
